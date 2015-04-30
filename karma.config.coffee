@@ -1,6 +1,8 @@
 # Karma configuration
 # Generated on Thu Apr 30 2015 16:43:03 GMT-0400 (Eastern Daylight Time)
 
+path = require 'path'
+
 module.exports = (config) ->
   config.set
 
@@ -22,6 +24,7 @@ module.exports = (config) ->
 
     # list of files to exclude
     exclude: [
+      'node_modules/'
     ]
 
 
@@ -30,6 +33,16 @@ module.exports = (config) ->
     preprocessors:
       'src/**/*.js': ['webpack']
       'test/**/*.js': ['webpack']
+
+    webpack:
+      resolve:
+        extensions: ['', '.js', '.json']
+      module:
+        loaders: [
+          test: /\.jsx?$/, loaders: ['babel-loader'], exclude: path.join(__dirname, 'node_modules')
+        ,
+          test: /\.json$/, loaders: ['json-loader']
+        ]
 
 
     # test results reporter to use
@@ -62,7 +75,7 @@ module.exports = (config) ->
 
     # start these browsers
     # available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS', 'Chrome']
+    browsers: ['PhantomJS']
 
 
     # Continuous Integration mode

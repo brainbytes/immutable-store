@@ -1,16 +1,13 @@
-var HtmlPlugin = require('html-webpack-plugin');
-
 var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
   entry: {
-    src: './src/index',
-    test: './test/index'
+    src: './src/index'
   },
   output: {
-    filename: 'index.[name].js',
+    filename: 'index.[hash].js',
     path: __dirname + '/bin'
   },
   resolve: {
@@ -21,8 +18,5 @@ module.exports = {
       {test: /\.jsx?$/, loaders: ['babel-loader']},
       {test: /\.json$/, loaders: ['json-loader']},
     ]
-  },
-  plugins: [
-    new HtmlPlugin({ title: 'Immutable Store', filename: 'index.[name].html' }),
-  ]
+  }
 };
