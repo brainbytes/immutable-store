@@ -15,8 +15,8 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
-      'test/**/*.js',
       'src/**/*.js'
+      'test/**/*.js'
     ]
 
 
@@ -27,8 +27,9 @@ module.exports = (config) ->
 
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    }
+    preprocessors:
+      'src/**/*.js': ['webpack']
+      'test/**/*.js': ['webpack']
 
 
     # test results reporter to use
@@ -61,7 +62,7 @@ module.exports = (config) ->
 
     # start these browsers
     # available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS']
+    browsers: ['PhantomJS', 'Chrome']
 
 
     # Continuous Integration mode
