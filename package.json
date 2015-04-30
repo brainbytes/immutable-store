@@ -1,0 +1,33 @@
+{
+  "name": "immutable-store",
+  "version": "0.1.0",
+  "description": "ES6 Flux-based immutable data store with Immutable.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brainbytes/immutable-store"
+  },
+  "keywords": [
+    "flux",
+    "es6",
+    "datastore",
+    "store",
+    "immutable"
+  ],
+  "author": "Benjamin Cochrane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brainbytes/immutable-store/issues"
+  },
+  "homepage": "https://github.com/brainbytes/immutable-store",
+  "devDependencies": {
+    "babel-core": "^5.1.13",
+    "babel-loader": "^5.0.0",
+    "html-webpack-plugin": "^1.3.0",
+    "json-loader": "^0.5.1",
+    "webpack": "^1.8.11"
+  }
+}
