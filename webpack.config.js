@@ -1,14 +1,14 @@
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  //devtool: 'eval',
   entry: {
-    src: './src/index'
+    src: ['./src/index'],
+    test: ['./test/index']
   },
   output: {
-    filename: 'index.[hash].js',
-    path: __dirname + '/bin'
+    filename: 'index.[name].[hash].js',
+    path: path.join(__dirname, 'bin')
   },
   resolve: {
     extensions: ['', '.js', '.json']

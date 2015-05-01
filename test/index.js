@@ -1,4 +1,4 @@
-//import src from '../src/module.js'
+import src from '../src/module.js'
 
 import {expect} from 'chai'
 
@@ -10,6 +10,10 @@ describe('testing test', () => {
 
   it('should be false', () => {
     expect(false).to.be.false
+  });
+
+  it('should be supah true', () => {
+    expect(src()).to.be.true
   });
 
 });

@@ -17,10 +17,15 @@ module.exports = (config) ->
 
     # list of files / patterns to load in the browser
     files: [
-      'src/**/*.js'
       'test/**/*.js'
     ]
 
+    plugins: [
+      require 'karma-webpack'
+      require 'karma-phantomjs-launcher'
+      require 'karma-mocha'
+      require 'karma-chrome-launcher'
+    ]
 
     # list of files to exclude
     exclude: [
@@ -31,15 +36,21 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors:
-      'src/**/*.js': ['webpack']
-      'test/**/*.js': ['webpack']
+      #'./src/**/*.js': ['webpack']
+      './test/**/*.js': ['webpack']
 
     webpack:
       resolve:
         extensions: ['', '.js', '.json']
+        root: __dirname
+        modulesDirectories: [
+          ''
+          'src'
+          'node_modules'
+        ]
       module:
         loaders: [
-          test: /\.jsx?$/, loaders: ['babel-loader'], exclude: path.join(__dirname, 'node_modules')
+          test: /\.js?$/, loaders: ['babel-loader'], exclude: path.join(__dirname, 'node_modules')
         ,
           test: /\.json$/, loaders: ['json-loader']
         ]
@@ -66,7 +77,7 @@ module.exports = (config) ->
     # - config.LOG_WARN
     # - config.LOG_INFO
     # - config.LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_DEBUG
 
 
     # enable / disable watching file and executing tests whenever any file changes
